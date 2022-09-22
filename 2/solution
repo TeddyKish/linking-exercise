@@ -1,0 +1,15 @@
+1. What is the error?
+Multiple definitions of the global variable 'c'.
+
+2. What causes it?
+The header file "helper.h" declares the global variable, but also implements it.
+This implementation is included in different translation units- therefore, there is more than one implementation for the identifier 'c', so the linker can't resolve the references un-ambiguously.
+
+3. Suggest a way to solve the situation: thus being able to use a global variable across TUs.
+
+We need to make sure a single definition exists to that identifier:
+- Replace the #include to the header with 'extern const int c;' in one of the TUs.
+
+
+Bonus: Why does replacing "helper.h" content with the line "const int c;" works?
+Uninitialized global variables are located in the 'bss' section, which is always zeroed out when a process is loaded. This is why every uninitialized global variable automatically receives the value 0.

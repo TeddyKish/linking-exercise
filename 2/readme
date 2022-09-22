@@ -1,0 +1,16 @@
+So in this scenario, we attempt to create a global variable in C!
+The global variable is in "helper.h". We included that file in different translation units.
+
+Now, running 'gcc -Wall main.c' works perfectly fine.
+However, trying to build using 'gcc -Wall main.c ext.c' fails! I wonder why..
+
+1. What is the error?
+
+2. What causes it?
+
+3. Suggest 2 ways of solving the situation: thus being able to use a global variable across TUs.
+
+Bonus: Why does replacing "helper.h" content with the line "const int c;" works?
+Hint: Remember where uninitialized global variables are located in the process layout.
+
+**Note: In this scenario, you must modify the code, but not the build invocation command!
