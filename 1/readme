@@ -1,0 +1,14 @@
+Welcome to the first scenario!
+
+The goal in this section is to produce an executable that prints "Yum's value is 10".
+Apparently, executing a build using `gcc -Wall main.c` produces an error. I wonder why...
+
+1. What type of error is it? What does it mean?
+
+2. What is the problem in this scenario?
+
+3. How do you solve it? (Include the correct build command in your answer)
+
+
+
+**Note: You mustn't modify the code in this scenario!

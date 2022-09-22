@@ -1,0 +1,14 @@
+1. What type of error is it? What does it mean?
+
+Undefined reference to 'yum'. 
+This means the linker hasn't found an implementation of the identifier 'yum'.
+
+2. What is the problem in this scenario?
+
+The 'yum' identifer has been used in the 'main.c' translation unit, although its implementation doesn't exist.
+
+3. How do you solve it? (Include the correct build command in your answer)
+
+The solution includes providing the implementation for the external identifier 'yum' to the linker. This consists of adding the translation unit 'ext.c', where 'yum' was implemented, to the build process.
+
+gcc -Wall main.c ext.c
