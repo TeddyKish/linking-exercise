@@ -1,0 +1,16 @@
+So, the linking lecture mentioned inline functions.
+I wonder if that can be useful here? huh...
+
+Compile using 'g++ -Wall main.cpp ext.cpp'.
+*Pay attention to the fact that "human.h" defines the function print_human within the class definition.
+
+1. There are 2 TUs that include the "human.h" header, which implements the Human class.
+   Why doesn't the compiler complain about multiple definitions?
+
+2. Build using 'g++ -Wall main_alien.cpp ext_alien.cpp'. What happens?
+
+3. How can you solve this problem?
+
+4. Bonus: Template functions can be instantiated with the same type in different TUs.
+   This essentially creates multiple definitions of the same function.
+   Why doesn't that violate the ODR?

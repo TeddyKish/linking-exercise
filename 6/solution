@@ -1,0 +1,16 @@
+1. There are 2 TUs that include the "human.h" header, which implements the Human class.
+   Why doesn't the compiler complain about multiple definitions?
+ - Class member functions implemented in the class definition site, are inline by default.
+   When a function is 'inline', it may have multiple definitions available for the linker.
+   The linker than may choose of them at random as the single definition.
+
+2. Replace '#include "human.h"' with '#include "alien.h"'. What happens when you try to compile?
+-  Multiple definitions error because "alien.h" contains a function definition.
+
+3. How can you solve this problem?
+-  You can put 'inline' in front of the function to make it inline.
+
+4. Bonus: Template functions can be instantiated with the same type in different TUs.
+   This essentially creates multiple definitions of the same function.
+   Why doesn't that violate the ODR?
+-  Template instantiations are 'inline' by default.
