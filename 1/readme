@@ -10,5 +10,4 @@ Apparently, executing a build using `gcc -Wall main.c` produces an error. I wond
 3. How do you solve it? (Include the correct build command in your answer)
 
 
-
 **Note: You mustn't modify the code in this scenario!
