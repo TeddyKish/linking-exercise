@@ -1,0 +1,13 @@
+1. Explain, to the maximal depth you can, how main.c uses 'func()' which is defined in ext.c.
+- main.c requests 'void func()' in its import table.
+  The linker searches for a single implementation of it.
+  That definition is located in ext.obj, then it is linked in the final executable.
+
+2. Uncomment line 10. What error do you receive? Why does it happen?
+-  Undefined reference to 'enlarge(int)'. 
+   This occurs because enlarge isn't exported from ext.c, but main.c tries to import it.
+
+3. How would you solve it?
+-  Remove the 'static' keyword
+OR
+-  Create a non-static proxy function that uses enlarge, and call the proxy function.
