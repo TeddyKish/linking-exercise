@@ -10,7 +10,6 @@ However, trying to build using 'gcc -Wall main.c ext.c' fails! I wonder why..
 
 3. Suggest 2 ways of solving the situation: thus being able to use a global variable across TUs.
 
-Bonus: Why does replacing "helper.h" content with the line "const int c;" works?
-Hint: Remember where uninitialized global variables are located in the process layout.
-
 **Note: In this scenario, you must modify the code, but not the build invocation command!
+
+Bonus: Why does invoking 'g++ -Wall main.c ext.c' work on the original input?
