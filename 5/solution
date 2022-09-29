@@ -1,0 +1,13 @@
+1. What error occurs when trying to link main.o and ext.o?
+-  Multiple definitions of <first> and <second>, which are defined in the header file ns_fun.h
+   This is an implementation that is not as clear as defining a function, but is an implementation nonetheless.
+   ns_fun.h is then included in two TUs, thus there are multiple definitions of these identifiers.
+
+2. How can this be solved using 'static'?
+-  Placing 'static' in front of <first> and <second> will generate a local copy of the identifiers within each TU.
+   This means that <first> and <second> will have internal linkage.
+   These implementations won't be exported and therefore each Tu receives "its own version" of them.
+
+3. How can this be solved using 'extern'?
+-  ns_fun.h can place 'extern' in front of the identifiers it currently implements, and thus only declare them. 
+   This declaration must be implemented somewhere- the programmer must choose some single TU to contain the definition.

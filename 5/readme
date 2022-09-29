@@ -1,0 +1,12 @@
+Previously, we learned about the usage of global variables in C.
+To solve naming collisions and provide logical separations between identifiers, C++ introduces namespaces!
+
+This code exmaple tries to use global variables in namespaces. For some reason it won't compile! I'm helpless..
+
+1. What error occurs when trying to link main.o and ext.o?
+
+2. How can this be solved using 'static'?
+
+3. How can this be solved using 'extern'?
+
+**Note: From this exercise onwards, use 'g++' instead of 'gcc'!
