@@ -1,0 +1,15 @@
+1. What is the error?
+Multiple definitions of the global variable 'c'.
+
+2. What causes it?
+The header file "helper.h" declares the global variable, but also implements it.
+This implementation is included in different translation units- therefore, there is more than one implementation for the identifier 'c', so the linker can't resolve the references un-ambiguously.
+
+3. Suggest 2 ways of solving the situation: thus being able to use a global variable across TUs.
+
+We need to make sure a single definition exists to that identifier:
+- Replace the #include to the header with 'extern const int c;' in one of the TUs, thus implementing it only once in the TU that actually includes "helper.h".
+- Add 'static' in front of the variable, so that the variable will have internal linkage wherever it is included.
+
+Bonus: Why does invoking 'g++ -Wall main.c ext.c' work on the original input?
+- Because in C++, 'const' implies internal linkage of the identifier. Therefore, the variable isn't exported -> its implementation isn't exported -> there is a single definition of that variable for every TU.

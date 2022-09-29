@@ -1,8 +1,15 @@
 #include <stdio.h>
-#include "helper.h"
+
+#include "good_header.h"
+#include "good_header.h"
 
 int main(int argc, char const *argv[])
 {
-	printf("from main, c = %d", c);
+	printf("This is main!\n");
 	return 0;
+}
+
+void func()
+{
+	printf("This is john petrucci!\n");
 }

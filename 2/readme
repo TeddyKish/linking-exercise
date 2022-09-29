@@ -1,15 +1,15 @@
-So in this scenario, we attempt to create a global variable in C!
-The global variable is in "helper.h". We included that file in different translation units.
+Hello! In this exercise we're going to have some fun with declarations and definitions.
 
-Now, running 'gcc -Wall main.c' works perfectly fine.
-However, trying to build using 'gcc -Wall main.c ext.c' fails! I wonder why..
+This program currently compiles fine ('gcc -Wall main.c').
+Pay attention to main.cpp. It appears as if there are 2 #includes to "good_header.h". Suspicious...
 
-1. What is the error?
+1. Why does the program compile and run correctly, despite "good_header.h" not having include guards?
+- Explain the difference between 'declaration' and 'definition' very clearly
 
-2. What causes it?
+2. Build using bad_main, e.g. 'gcc -Wall bad_main.c'. Does your program compile correctly? If not, why?
 
-3. Suggest 2 ways of solving the situation: thus being able to use a global variable across TUs.
+3. What is the crucial difference between "good_header.h" and "bad_header.h"? Which one is bad practice?
 
-**Note: In this scenario, you must modify the code, but not the build invocation command!
+4. Can include guards be used to solve this specific scenario?
 
-Bonus: Why does invoking 'g++ -Wall main.c ext.c' work on the original input?
+5. What is the best practice method to solve this issue?

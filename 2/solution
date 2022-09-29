@@ -1,14 +1,21 @@
-1. What is the error?
-Multiple definitions of the global variable 'c'.
+1. Why does the program compile and run correctly, despite "good_header.h" not having include guards?
+- A declaration introduces a named identifier to the scope of the translation unit. 
+  Declaration of the same identifier may appear an indefinite amount of times.
+  A definition implements a known identifier. A definition of an identifer must appear once throughout the whole program.
 
-2. What causes it?
-The header file "helper.h" declares the global variable, but also implements it.
-This implementation is included in different translation units- therefore, there is more than one implementation for the identifier 'c', so the linker can't resolve the references un-ambiguously.
+2. Build using bad_main, e.g. 'gcc -Wall bad_main.c ext.c'. Does your program compile correctly? If not, why?
+  The program does not compile correctly because of multiple definitions of the print_name function.
+  bad_header.h contains a definition of the function.
+  Including it twice means that the TU will have 2 copies of implementations for the function.
+  This triggers redefinition of the same identifier.
 
-3. Suggest a ways of solving the situation: thus being able to use a global variable across TUs.
+3. What is the crucial difference between "good_header.h" and "bad_header.h"? Which one is bad practice?
+  The difference is that good_header contains a declaration of an identifier, whereas bad_header contains a definition of an identifier.
+  bad_header is bad practice because you should generally implement functions within the source files, not the header files.
+  This puts you in the risk of violating the ODR.
 
-We need to make sure a single definition exists to that identifier:
-- Replace the #include to the header with 'extern const int c;' in one of the TUs.
+4. Can include guards be used to solve this specific scenario?
+  Yes they can. This will ensure that bad_header is only included once, and thus there is only a single implementation.
 
-Bonus: Why does invoking 'g++ -Wall main.c ext.c' work on the original input?
-- Because in C++, 'const' implies internal linkage of the identifier.
+5. What is the best practice method to solve this issue?
+  Define the function in a source file, and put its declaration in a header file.
