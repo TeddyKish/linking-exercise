@@ -1,6 +1,5 @@
 Hello!
 In this exercise, main.c tries to import functions from ext.c
-Hmmm.. Some identifiers in ext.c are prefixed with 'static'. I wonder if that makes a difference..
 
 Compiling and running in its current form will work (when line 10 is commented out).
 Use 'gcc -Wall main.c ext.c'.

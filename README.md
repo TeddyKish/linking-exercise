@@ -20,4 +20,4 @@ Global variables using namespaces in C++.
 Using inline to our advantage.
 
 # Scenario 7
-In-depth import/export tables enrichment theoretical exercise.
+Theoretical exercise about weak symbols.

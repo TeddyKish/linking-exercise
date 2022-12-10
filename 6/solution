@@ -2,7 +2,7 @@
    Why doesn't the compiler complain about multiple definitions?
  - Class member functions implemented in the class definition site, are inline by default.
    When a function is 'inline', it may have multiple definitions available for the linker.
-   The linker than may choose of them at random as the single definition.
+   The linker then may choose one of them at random as the single definition.
 
 2. Replace '#include "human.h"' with '#include "alien.h"'. What happens when you try to compile?
 -  Multiple definitions error because "alien.h" contains a function definition.

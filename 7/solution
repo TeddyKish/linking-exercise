@@ -1,0 +1,23 @@
+1. What are weak symbols?
+-  Every exported symbol is, by default, 'strong'.
+   However, some symbols may be marked as 'weak'.
+   In that case, the linker allows 'strong' symbols to override 'weak' symbols with the same name.
+   This effectively allows overriding some library functions (e.g. malloc()).
+
+   Weak symbols also do not require having a definition within the program (in contrast to strong symbols).
+   Weak symbols are not part of the standard but of the ELF format.
+
+2. How can you mark a function as 'weak' within your code?
+   You can use '#pragma weak <name>' to make <name> a weak symbol, in GCC.
+
+3. What are they used for?
+	- Overriding 'weakly' defined library functions like malloc,free and the like
+	- They enable maintaining backwards compatibility for libraries (which can be removed at the choice of the user).
+
+4. How can weak symbols be used when implementing inline functions? 
+	The linker may decide that every inline function is implictly a 'weak' symbol.
+	Then, when the linker collects all the weak symbols-
+	If they're all inline functions without a strong symbol-
+	The linker may choose one of the functions to be the "strong symbol".
+	That "strong symbol" will override the implementations of the rest,
+	And we get the same behavior from inline functions (but implementing the mechanism using weak symbols).

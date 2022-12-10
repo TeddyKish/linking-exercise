@@ -1,8 +1,4 @@
-So, the linking lecture mentioned inline functions.
-I wonder if that can be useful here? huh...
-
 Compile using 'g++ -Wall main.cpp ext.cpp'.
-*Pay attention to the fact that "human.h" defines the function print_human within the class definition.
 
 1. There are 2 TUs that include the "human.h" header, which implements the Human class.
    Why doesn't the compiler complain about multiple definitions?

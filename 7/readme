@@ -1,0 +1,9 @@
+Let's research some advanced stuff!
+
+1. What are weak symbols?
+
+2. How can you mark a function as 'weak' within your code (in GCC)?
+
+3. What are they used for?
+
+4. How can weak symbols be used when implementing inline functions? 

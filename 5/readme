@@ -3,6 +3,8 @@ To solve naming collisions and provide logical separations between identifiers, 
 
 This code exmaple tries to use global variables in namespaces. For some reason it won't compile! I'm helpless..
 
+-Prerequisite: Read about C++ namespaces.
+
 1. What error occurs when trying to link main.o and ext.o?
 
 2. How can this be solved using 'static'?
